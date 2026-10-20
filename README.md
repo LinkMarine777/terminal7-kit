@@ -13,6 +13,8 @@ From [Terminal 7](https://terminal7.xyz): REST, OpenAPI and an MCP server.
 | Folder | What |
 |---|---|
 | `watcher/` | a small Python example: prints the TOP 10 when it changes and each signal as it fires |
+| `plugins/solana-agent-kit/` | `@terminal7/plugin-solana-agent-kit`: methods + LLM actions for [Solana Agent Kit](https://github.com/sendaifun/solana-agent-kit) |
+| `plugins/elizaos/` | `@terminal7/plugin-elizaos`: actions for [ElizaOS](https://github.com/elizaOS/eliza) agents |
 | `mcp/server.json` | the MCP Registry entry for the remote server `https://api.terminal7.xyz/v1/mcp` |
 
 ## MCP (Claude, Cursor, any MCP client)
@@ -31,6 +33,8 @@ curl -H "Authorization: Bearer t7_YOUR_KEY" https://api.terminal7.xyz/v1/coin/<m
 curl -H "Authorization: Bearer t7_YOUR_KEY" "https://api.terminal7.xyz/v1/signals?since=<unix seconds>"
 curl https://api.terminal7.xyz/v1/scorecard     # public: how each signal has done
 ```
+
+Every example and plugin here only reads data: none of them trades, signs or holds keys.
 
 ## Rules
 

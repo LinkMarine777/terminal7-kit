@@ -1,0 +1,24 @@
+{
+  "name": "@terminal7/plugin-elizaos",
+  "version": "1.0.0",
+  "description": "Terminal 7 data for ElizaOS agents: stonkfun coin signals, scores and payouts on Solana (read-only).",
+  "type": "module",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "exports": { ".": { "types": "./index.d.ts", "default": "./index.js" } },
+  "files": ["index.js", "index.d.ts", "t7.js", "README.md"],
+  "keywords": ["elizaos", "elizaos-plugins", "solana", "stonkfun", "terminal7", "ai-agent", "crypto-data"],
+  "homepage": "https://terminal7.xyz/api",
+  "repository": { "type": "git", "url": "git+https://github.com/LinkMarine777/terminal7-kit.git", "directory": "plugins/elizaos" },
+  "license": "MIT",
+  "engines": { "node": ">=18" },
+  "peerDependencies": { "@elizaos/core": ">=1" },
+  "agentConfig": {
+    "pluginType": "elizaos:plugin:1.0.0",
+    "pluginParameters": {
+      "T7_API_KEY": { "type": "string", "description": "a Terminal 7 data API key (t7_...) from https://terminal7.xyz/api", "required": true, "sensitive": true },
+      "T7_API_URL": { "type": "string", "description": "API base URL (default https://api.terminal7.xyz/v1)", "required": false }
+    }
+  },
+  "publishConfig": { "access": "public" }
+}

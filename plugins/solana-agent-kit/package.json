@@ -1,0 +1,17 @@
+{
+  "name": "@terminal7/plugin-solana-agent-kit",
+  "version": "1.0.0",
+  "description": "Terminal 7 data for Solana Agent Kit: stonkfun coin signals, scores and payouts (read-only).",
+  "type": "module",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "exports": { ".": { "types": "./index.d.ts", "default": "./index.js" } },
+  "files": ["index.js", "index.d.ts", "t7.js", "README.md"],
+  "keywords": ["solana", "solana-agent-kit", "stonkfun", "terminal7", "ai-agent", "crypto-data"],
+  "homepage": "https://terminal7.xyz/api",
+  "repository": { "type": "git", "url": "git+https://github.com/LinkMarine777/terminal7-kit.git", "directory": "plugins/solana-agent-kit" },
+  "license": "MIT",
+  "engines": { "node": ">=18" },
+  "peerDependencies": { "solana-agent-kit": ">=2", "zod": "^3.22" },
+  "publishConfig": { "access": "public" }
+}
