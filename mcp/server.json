@@ -1,0 +1,23 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.LinkMarine777/terminal7",
+  "title": "Terminal 7",
+  "description": "Signals, scores and payout data for stonkfun coins on Solana: TOP 10, REAL / compound / conviction scores, payouts.",
+  "repository": { "url": "https://github.com/LinkMarine777/terminal7-kit", "source": "github" },
+  "version": "1.0.0",
+  "websiteUrl": "https://terminal7.xyz/api",
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://api.terminal7.xyz/v1/mcp",
+      "headers": [
+        {
+          "name": "Authorization",
+          "description": "Bearer t7_... (a free key from https://terminal7.xyz/api)",
+          "isRequired": true,
+          "isSecret": true
+        }
+      ]
+    }
+  ]
+}
