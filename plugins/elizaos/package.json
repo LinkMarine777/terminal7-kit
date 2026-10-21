@@ -1,6 +1,6 @@
 {
   "name": "@terminal7/plugin-elizaos",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Terminal 7 data for ElizaOS agents: stonkfun coin signals, scores and payouts on Solana (read-only).",
   "type": "module",
   "main": "index.js",

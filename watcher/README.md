@@ -16,7 +16,6 @@ Get a free key at https://terminal7.xyz/api (free = data 15 minutes late; Builde
 - `/v1/top`: the coins the most signal families agree on now
 - `/v1/coin/{mint}`: REAL / compound / conviction scores, payout APY, market numbers, recent signals
 - `/v1/signals`: every signal family firing, with times
-- `/v1/scorecard`: how each signal has done against coins of the same size
 
 Also an MCP server for AI agents: see https://terminal7.xyz/llms.txt.
 

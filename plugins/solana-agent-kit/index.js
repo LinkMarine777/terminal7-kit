@@ -11,7 +11,6 @@ export function createTerminal7Plugin(opts = {}) {
     t7Top: agent => api(agent).top(),
     t7Coin: (agent, mint) => api(agent).coin(mint),
     t7Signals: (agent, q = {}) => api(agent).signals(q),
-    t7Scorecard: agent => api(agent).scorecard(),
   };
   const run = fn => async (agent, input) => {
     try { const { data, text } = await fn(agent, input); return { status: 'success', text, data }; }

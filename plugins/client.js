@@ -18,7 +18,6 @@ export function t7Client({ apiKey, baseUrl } = {}) {
     top: () => get('/top'),
     coin: mint => { if (!MINT.test(mint || '')) throw new Error('a Solana mint address is needed'); return get('/coin/' + mint); },
     signals: ({ mint, since, limit } = {}) => get('/signals', { mint, since, limit }),
-    scorecard: () => get('/scorecard'),
     me: () => get('/me'),
   };
 }

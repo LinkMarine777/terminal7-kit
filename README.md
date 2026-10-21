@@ -31,7 +31,6 @@ Tools: `get_top`, `get_coin`, `get_signals`, `get_usage`.
 curl -H "Authorization: Bearer t7_YOUR_KEY" https://api.terminal7.xyz/v1/top
 curl -H "Authorization: Bearer t7_YOUR_KEY" https://api.terminal7.xyz/v1/coin/<mint>
 curl -H "Authorization: Bearer t7_YOUR_KEY" "https://api.terminal7.xyz/v1/signals?since=<unix seconds>"
-curl https://api.terminal7.xyz/v1/scorecard     # public: how each signal has done
 ```
 
 Every example and plugin here only reads data: none of them trades, signs or holds keys.
