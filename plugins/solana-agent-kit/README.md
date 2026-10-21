@@ -22,4 +22,6 @@ Actions for LLM tools (`createVercelAITools`, `createLangchainTools`, `createOpe
 
 Get a key at https://terminal7.xyz/api (free: 15 minutes behind; Builder: real time). The key can also come from `T7_API_KEY`.
 
+Every call, its fields, examples and limits: https://terminal7.xyz/docs/
+
 Data, not financial advice. What your agent does with it is yours.

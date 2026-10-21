@@ -18,4 +18,6 @@ optionally for one coin).
 
 Get a key at https://terminal7.xyz/api (free: 15 minutes behind; Builder: real time).
 
+Every call, its fields, examples and limits: https://terminal7.xyz/docs/
+
 Data, not financial advice. What your agent does with it is yours.
