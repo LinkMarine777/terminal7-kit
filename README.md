@@ -5,6 +5,7 @@ From [Terminal 7](https://terminal7.xyz): REST, OpenAPI and an MCP server.
 
 - **Get a key:** https://terminal7.xyz/api (sign in with a Solana wallet: a message, not a transaction)
 - **Free:** 1,000 requests a day, data 15 minutes behind. **Builder** ($29 / 30 days, USDC): 25,000 a day, real time.
+- **Docs:** https://terminal7.xyz/docs/ (every call, example answers, fields, errors and limits)
 - **Docs for AI coding tools:** https://terminal7.xyz/llms.txt
 - **OpenAPI:** https://api.terminal7.xyz/v1/openapi.json
 
