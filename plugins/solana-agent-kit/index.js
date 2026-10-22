@@ -1,6 +1,6 @@
-// Terminal 7 plugin for Solana Agent Kit: read-only data tools (TOP 10, coin scores, signals). It never trades or signs.
+// Terminal 7 plugin for Solana Agent Kit: read-only data tools (TOP 10, coin scores, signals, launches, market mood, every coin). It never trades or signs.
 import { z } from 'zod';
-import { t7Client, topText, coinText, signalsText } from './t7.js';
+import { t7Client, topText, coinText, signalsText, launchesText, moodText } from './t7.js';
 
 const keyOf = (opts, agent) => opts.apiKey || agent?.config?.T7_API_KEY || (typeof process !== 'undefined' ? process.env.T7_API_KEY : undefined);
 const NOTE = 'Read-only market data from Terminal 7; not financial advice.';
@@ -11,6 +11,9 @@ export function createTerminal7Plugin(opts = {}) {
     t7Top: agent => api(agent).top(),
     t7Coin: (agent, mint) => api(agent).coin(mint),
     t7Signals: (agent, q = {}) => api(agent).signals(q),
+    t7Launches: (agent, q = {}) => api(agent).launches(q),
+    t7Mood: agent => api(agent).mood(),
+    t7Coins: (agent, q = {}) => api(agent).coins(q),
   };
   const run = fn => async (agent, input) => {
     try { const { data, text } = await fn(agent, input); return { status: 'success', text, data }; }
@@ -32,6 +35,16 @@ export function createTerminal7Plugin(opts = {}) {
       examples: [[{ input: { limit: 20 }, output: { status: 'success', text: 'Terminal 7 signals ...' }, explanation: 'The latest signals' }]],
       schema: z.object({ mint: z.string().optional(), since: z.number().optional().describe('unix seconds'), limit: z.number().optional() }),
       handler: run(async (agent, i) => { const d = await methods.t7Signals(agent, i || {}); return { data: d, text: signalsText(d) }; }) },
+    { name: 'T7_LAUNCHES', similes: ['new stonkfun launches', 'terminal 7 launch radar', 'new REAL launches'],
+      description: `New stonkfun launches from the Terminal 7 launch radar, newest first: score and call (REAL / WATCH / THIN / FARM), market cap, peak, holders, flags; optionally only one call. ${NOTE}`,
+      examples: [[{ input: { call: 'REAL', limit: 10 }, output: { status: 'success', text: 'Terminal 7 launch radar ...' }, explanation: 'The newest REAL launches' }]],
+      schema: z.object({ call: z.string().optional().describe('only this call, e.g. REAL'), min_score: z.number().optional(), limit: z.number().optional() }),
+      handler: run(async (agent, i) => { const d = await methods.t7Launches(agent, i || {}); return { data: d, text: launchesText(d) }; }) },
+    { name: 'T7_MOOD', similes: ['meme market mood', 'stonkfun sentiment', 'is the market hot or cold'],
+      description: `The meme market mood for stonkfun coins: 0-100 (cold under 40, hot 60+), the median coin's 24 h move, the crypto Fear & Greed index. ${NOTE}`,
+      examples: [[{ input: {}, output: { status: 'success', text: 'Terminal 7 meme market mood: 47/100 (mid)' }, explanation: 'How the meme market feels now' }]],
+      schema: z.object({}),
+      handler: run(async agent => { const d = await methods.t7Mood(agent); return { data: d, text: moodText(d) }; }) },
   ];
   return { name: 'terminal7', methods, actions, initialize() {} };
 }

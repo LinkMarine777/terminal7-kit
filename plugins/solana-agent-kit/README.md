@@ -16,9 +16,12 @@ const agent = new SolanaAgentKit(wallet, rpcUrl, {}).use(createTerminal7Plugin({
 const top = await agent.methods.t7Top(agent);                  // the TOP 10
 const coin = await agent.methods.t7Coin(agent, '<mint>');      // one coin's scores and payouts
 const sig = await agent.methods.t7Signals(agent, { limit: 50 }); // signals firing, with times
+const news = await agent.methods.t7Launches(agent, { call: 'REAL' }); // new launches from the launch radar
+const mood = await agent.methods.t7Mood(agent);                // the meme market mood, 0-100
+const all = await agent.methods.t7Coins(agent, { offset: 0 });  // every coin Terminal 7 scores, paged
 ```
 
-Actions for LLM tools (`createVercelAITools`, `createLangchainTools`, `createOpenAITools`): `T7_TOP_SIGNALS`, `T7_COIN`, `T7_SIGNALS`.
+Actions for LLM tools (`createVercelAITools`, `createLangchainTools`, `createOpenAITools`): `T7_TOP_SIGNALS`, `T7_COIN`, `T7_SIGNALS`, `T7_LAUNCHES`, `T7_MOOD`.
 
 Get a key at https://terminal7.xyz/api (free: 15 minutes behind; Builder: real time). The key can also come from `T7_API_KEY`.
 

@@ -24,7 +24,7 @@ From [Terminal 7](https://terminal7.xyz): REST, OpenAPI and an MCP server.
 { "mcpServers": { "terminal7": { "url": "https://api.terminal7.xyz/v1/mcp", "headers": { "Authorization": "Bearer t7_YOUR_KEY" } } } }
 ```
 
-Tools: `get_top`, `get_coin`, `get_signals`, `get_usage`.
+Tools: `get_top`, `get_coin`, `get_signals`, `get_launches`, `get_mood`, `get_coins`, `get_usage`.
 
 ## REST
 

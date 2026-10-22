@@ -1,5 +1,5 @@
-// Terminal 7 plugin for ElizaOS: read-only data actions (TOP 10, coin scores, signals). It never trades or signs.
-import { t7Client, findMint, topText, coinText, signalsText } from './t7.js';
+// Terminal 7 plugin for ElizaOS: read-only data actions (TOP 10, coin scores, signals, launches, market mood). It never trades or signs.
+import { t7Client, findMint, topText, coinText, signalsText, launchesText, moodText } from './t7.js';
 
 const api = rt => t7Client({ apiKey: rt.getSetting('T7_API_KEY') || undefined, baseUrl: rt.getSetting('T7_API_URL') || undefined });
 const hasKey = async rt => !!rt.getSetting('T7_API_KEY');
@@ -37,11 +37,21 @@ const signals = action('T7_SIGNALS',
   ['TERMINAL7_SIGNALS', 'LATEST_SIGNALS'], 'Any new Terminal 7 signals?',
   async (rt, m) => { const d = await api(rt).signals({ mint: findMint(m?.content?.text) || undefined, limit: 50 }); return { data: d, text: signalsText(d) }; });
 
+const launches = action('T7_LAUNCHES',
+  'New stonkfun launches from the Terminal 7 launch radar, newest first: score and call (REAL / WATCH / THIN / FARM), market cap, peak, holders, flags. Say "real" to see only REAL calls.',
+  ['TERMINAL7_LAUNCHES', 'NEW_LAUNCHES', 'LAUNCH_RADAR'], 'Any new REAL launches on Terminal 7?',
+  async (rt, m) => { const d = await api(rt).launches({ call: /\breal\b/i.test(m?.content?.text || '') ? 'REAL' : undefined, limit: 15 }); return { data: d, text: launchesText(d) }; });
+
+const mood = action('T7_MOOD',
+  'The meme market mood for stonkfun coins from Terminal 7: 0-100 (cold under 40, hot 60 and over), the median coin\'s move, the crypto Fear & Greed index.',
+  ['TERMINAL7_MOOD', 'MARKET_MOOD', 'MEME_SENTIMENT'], 'How is the stonkfun market feeling today?',
+  async rt => { const d = await api(rt).mood(); return { data: d, text: moodText(d) }; });
+
 export const terminal7Plugin = {
   name: 'terminal7',
-  description: 'Terminal 7 data for stonkfun coins on Solana: TOP 10, REAL / compound / conviction scores, holder payouts, signals. Read-only.',
+  description: 'Terminal 7 data for stonkfun coins on Solana: TOP 10, REAL / compound / conviction scores, holder payouts, signals, new launches, market mood. Read-only.',
   config: { T7_API_KEY: null, T7_API_URL: null },
-  actions: [top, coin, signals],
+  actions: [top, coin, signals, launches, mood],
   providers: [],
 };
 
