@@ -1,0 +1,12 @@
+{
+  "name": "terminal7-kit",
+  "description": "Terminal 7: signals, scores and payout data for stonkfun coins on Solana",
+  "owner": { "name": "Terminal 7", "url": "https://terminal7.xyz" },
+  "plugins": [
+    {
+      "name": "terminal7",
+      "source": "./claude",
+      "description": "Terminal 7's data API in Claude Code: the TOP 10, any coin's scores, the launch radar and the market mood. Read-only."
+    }
+  ]
+}
