@@ -1,0 +1,39 @@
+{
+  "name": "terminal7",
+  "version": "1.0.0",
+  "description": "Terminal 7's data API in Claude Code: the TOP 10, any coin's scores, the launch radar and the market mood for stonkfun coins on Solana. Read-only: it never trades or signs.",
+  "author": {
+    "name": "Terminal 7",
+    "url": "https://terminal7.xyz"
+  },
+  "homepage": "https://terminal7.xyz/api",
+  "privacyPolicyUrl": "https://terminal7.xyz/privacy/",
+  "repository": "https://github.com/LinkMarine777/terminal7-kit",
+  "license": "MIT",
+  "keywords": [
+    "solana",
+    "stonkfun",
+    "crypto",
+    "signals",
+    "mcp",
+    "data"
+  ],
+  "userConfig": {
+    "api_key": {
+      "type": "string",
+      "title": "Terminal 7 API key",
+      "description": "Your key from https://terminal7.xyz/api (starts with t7_). Free keys are 15 minutes behind; Builder and up are real time.",
+      "required": true,
+      "sensitive": true
+    }
+  },
+  "mcpServers": {
+    "t7": {
+      "type": "http",
+      "url": "https://api.terminal7.xyz/v1/mcp",
+      "headers": {
+        "Authorization": "Bearer ${user_config.api_key}"
+      }
+    }
+  }
+}
