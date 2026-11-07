@@ -6,7 +6,7 @@ radar and the market mood. It only reads data: it never trades, signs or holds w
 ## Install
 
 ```
-/plugin marketplace add LinkMarine777/terminal7-kit
+/plugin marketplace add https://terminal7.xyz/claude/marketplace.json
 /plugin install terminal7@terminal7-kit
 ```
 
