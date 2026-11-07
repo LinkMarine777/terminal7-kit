@@ -31,7 +31,7 @@ Tools: `get_top`, `get_coin`, `get_signals`, `get_launches`, `get_mood`, `get_co
 ## Claude Code
 
 ```
-/plugin marketplace add LinkMarine777/terminal7-kit
+/plugin marketplace add https://terminal7.xyz/claude/marketplace.json
 /plugin install terminal7@terminal7-kit
 ```
 
