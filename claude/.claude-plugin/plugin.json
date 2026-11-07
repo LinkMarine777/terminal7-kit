@@ -1,11 +1,7 @@
 {
   "name": "terminal7",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Terminal 7's data API in Claude Code: the TOP 10, any coin's scores, the launch radar and the market mood for stonkfun coins on Solana. Read-only: it never trades or signs.",
-  "author": {
-    "name": "Terminal 7",
-    "url": "https://terminal7.xyz"
-  },
   "homepage": "https://terminal7.xyz/api",
   "privacyPolicyUrl": "https://terminal7.xyz/privacy/",
   "license": "MIT",
